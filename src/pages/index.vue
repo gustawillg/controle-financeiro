@@ -17,6 +17,10 @@ export default defineComponent({
     }
   },
   methods: {
+    handleTransactionDeleted(id: number) {
+      this.transactions = this.transactions.filter(transaction => transaction.id ! === id)
+    },
+
     showAddTransactionForm() {
       this.showForm = true
     },
@@ -46,7 +50,7 @@ export default defineComponent({
     <p>
       Aqui você monitora e mantem o controle sobre suas finanças
     </p>
-    <TransactionList :transactions="transactions" />
+    <TransactionList :transactions="transactions" @transactiondeleted="handleTransactionDeleted" />
     <button @click="showAddTransactionForm">
       Adicionar Transação
     </button>
