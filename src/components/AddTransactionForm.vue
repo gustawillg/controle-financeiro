@@ -4,11 +4,6 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      transactions: [
-        { id: 1, description: 'Compra de mantimentos', amount: -50 },
-        { id: 2, description: 'Salário', amount: 1000 },
-        // ... outras transações ...
-      ],
       showForm: false,
       newTransaction: {
         description: '',
@@ -40,16 +35,15 @@ export default defineComponent({
 </script>
 
 <template>
-  <Navbar />
   <div>
-    <h1>Bem-vindo ao Controle Financeiro</h1>
-    <p>
-      Aqui você monitora e mantem o controle sobre suas finanças
-    </p>
-    <TransactionList :transactions="transactions" />
+    <!-- Seu conteúdo existente -->
+
+    <!-- Botão ou gatilho para adicionar nova transação -->
     <button @click="showAddTransactionForm">
       Adicionar Transação
     </button>
+
+    <!-- Formulário/modal para adicionar nova transação -->
     <div v-if="showForm">
       <h2>Nova Transação</h2>
       <form @submit.prevent="addTransaction">
@@ -70,8 +64,3 @@ export default defineComponent({
     </div>
   </div>
 </template>
-
-<route lang="yaml">
-meta:
-  layout: home
-</route>
