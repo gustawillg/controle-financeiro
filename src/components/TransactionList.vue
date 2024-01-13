@@ -20,7 +20,7 @@ export default defineComponent({
     <ul>
       <!-- Iterar sobre as transações e exibi-las -->
       <li v-for="transaction in transactions" :key="transaction.id">
-        {{ transaction.description }} - R$ {{ transaction.amount.tofixed(2) }}
+        {{ transaction.description }} - R$ {{ transaction.amount.toFixed(2) }}
         <button @click="deleteTransaction(transaction.id)">
           Deletar
         </button>

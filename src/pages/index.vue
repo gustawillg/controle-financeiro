@@ -18,9 +18,8 @@ export default defineComponent({
   },
   methods: {
     handleTransactionDeleted(id: number) {
-      this.transactions = this.transactions.filter(transaction => transaction.id ! === id)
+      this.transactions = this.transactions.filter(transaction => transaction.id !== id)
     },
-
     showAddTransactionForm() {
       this.showForm = true
     },
