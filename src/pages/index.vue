@@ -32,9 +32,7 @@ const mobileMenuOpen = ref(false)
         <div class="hidden lg:flex lg:gap-x-12">
           <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm text-gray-900 font-semibold leading-6">{{ item.name }}</a>
         </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm text-gray-900 font-semibold leading-6">Log in <span aria-hidden="true">&rarr;</span></a>
-        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end" />
       </nav>
       <Dialog as="div" class="lg:hidden" :open="mobileMenuOpen" @close="mobileMenuOpen = false">
         <div class="fixed inset-0 z-50" />
@@ -54,9 +52,7 @@ const mobileMenuOpen = ref(false)
               <div class="py-6 space-y-2">
                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="block rounded-lg px-3 py-2 text-base text-gray-900 font-semibold leading-7 -mx-3 hover:bg-gray-50">{{ item.name }}</a>
               </div>
-              <div class="py-6">
-                <a href="#" class="block rounded-lg px-3 py-2.5 text-base text-gray-900 font-semibold leading-7 -mx-3 hover:bg-gray-50">Log in</a>
-              </div>
+              <div class="py-6" />
             </div>
           </div>
         </DialogPanel>
@@ -67,10 +63,10 @@ const mobileMenuOpen = ref(false)
       <div class="mx-auto max-w-2xl py-32 lg:py-56 sm:py-48">
         <div class="text-center">
           <h1 class="text-4xl text-gray-900 font-bold tracking-tight sm:text-6xl">
-            Data to enrich your online business
+            Bem-vindo ao controle financeiro
           </h1>
           <p class="mt-6 text-lg text-gray-600 leading-8">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+            Aqui você pode monitorar suas transações e manter controle sobre suas finanças.
           </p>
           <div class="mt-10 flex items-center justify-center gap-x-6">
             <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm text-white font-semibold shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 focus-visible:outline">Get started</a>
