@@ -1,9 +1,14 @@
 <script lang="ts">
+import { defineComponent } from 'vue'
+
 export default defineComponent({
   props: {
-    transactions: {
-      type: Array as PropType<Array<Transaction>>,
-      required: true,
+    transactions: Array, // Propriedade para receber a lista de transações
+  },
+  methods: {
+    deleteTransaction(id: number) {
+      // Emitir um evento para notificar o componente pai sobre a exclusão
+      this.$emit('transactiondeleted', id)
     },
   },
 })
@@ -15,7 +20,10 @@ export default defineComponent({
     <ul>
       <!-- Iterar sobre as transações e exibi-las -->
       <li v-for="transaction in transactions" :key="transaction.id">
-        {{ transaction.description }} - {{ transaction.amount }}
+        {{ transaction.description }} - R$ {{ transaction.amount.tofixed(2) }}
+        <button @click="deleteTransaction(transaction.id)">
+          Deletar
+        </button>
       </li>
     </ul>
   </div>
