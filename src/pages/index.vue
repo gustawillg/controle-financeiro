@@ -4,10 +4,11 @@ import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Orçamentos', href: '#' },
+  { name: 'Relatórios', href: '#' },
+  { name: 'Configurações', href: '#' },
+  { name: 'Resumo', href: '#' },
+  { name: 'Calendário', href: '#' },
 ]
 
 const mobileMenuOpen = ref(false)
@@ -69,7 +70,9 @@ const mobileMenuOpen = ref(false)
             Aqui você pode monitorar suas transações e manter controle sobre suas finanças.
           </p>
           <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm text-white font-semibold shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 focus-visible:outline">Get started</a>
+            <a href="/TransactionsPage" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm text-white font-semibold shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 focus-visible:outline">
+              Adicionar transações
+            </a>
           </div>
         </div>
       </div>
