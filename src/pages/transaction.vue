@@ -1,9 +1,3 @@
-<TransactionList :transactions="transactions" @transactiondeleted="handleTransactionDeleted" class="" />
-
-<button @click="showAddTransactionForm">
-  Adicionar Transação
-</button>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -49,22 +43,37 @@ export default defineComponent({
 </script>
 
 <template>
-  <div v-if="showForm">
-    <h2>Nova Transação</h2>
-    <form @submit.prevent="addTransaction">
-      <label>
-        Descrição:
-        <input v-model="newTransaction.description" required>
-      </label>
+  <Navbar />
+  <div class="flex flex-nowrap bg-white pt-12">
+    <!-- Movemos o componente TransactionList abaixo do bloco v-if -->
+    <TransactionList :transactions="transactions" class="relative isolate basis-1/4 border-r-3 px-6 pt-14 lg:px-8" @transactiondeleted="handleTransactionDeleted" />
 
-      <label>
-        Valor:
-        <input v-model="newTransaction.amount" type="number" required>
-      </label>
-
-      <button type="submit">
-        Adicionar
+    <!-- Botão ou gatilho para adicionar nova transação -->
+    <div class="relative isolate grid grid-flow-col grid-rows-4 flex flex-nowrap gap-4 px-6 pt-14 lg:px-8">
+      <button @click="showAddTransactionForm">
+        <div class="hover:bg-blue">
+          Adicionar Transação
+        </div>
       </button>
-    </form>
+
+      <div v-if="showForm" class="grid row-span-3 grid-rows-subgrid gap-4 px-6 lg:px-8">
+        <h2>Nova Transação</h2>
+        <form @submit.prevent="addTransaction">
+          <label>
+            Descrição:
+            <input v-model="newTransaction.description" required>
+          </label>
+
+          <label>
+            Valor:
+            <input v-model="newTransaction.amount" type="number" required>
+          </label>
+
+          <button type="submit">
+            Adicionar
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
 </template>
