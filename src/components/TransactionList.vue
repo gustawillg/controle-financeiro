@@ -1,7 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { Icon } from '@iconify/vue'
 
 export default defineComponent({
+  components: {
+    Icon,
+  },
   props: {
     transactions: Array, // Propriedade para receber a lista de transações
   },
@@ -22,10 +26,10 @@ export default defineComponent({
     <ul>
       <!-- Iterar sobre as transações e exibi-las -->
       <li v-for="transaction in transactions" :key="transaction.id">
-        {{ transaction.description }} - R$ {{ transaction.amount.toFixed(2) }}
+        {{ transaction.description }} - R$ {{ transaction.amount.toFixed(2) }} - Data: {{ new Date(transaction.date).toLocaleDateString() }}
         <div class="px-6">
           <button class="hover:text-indigo-500" @click="deleteTransaction(transaction.id)">
-            Deletar
+            <Icon icon="mdi:delete-empty" width="15" height="15" />
           </button>
         </div>
       </li>

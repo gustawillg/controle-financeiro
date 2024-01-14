@@ -9,8 +9,8 @@ export default defineComponent({
   data() {
     return {
       transactions: [
-        { id: 1, description: 'Compra de mantimentos', amount: -50 },
-        { id: 2, description: 'Salário', amount: 1000 },
+        { id: 1, description: 'Compra de mantimentos', amount: -50, date: new Date() },
+        { id: 2, description: 'Salário', amount: 1000, date: new Date() },
         // ... outras transações ...
       ],
       showForm: false,
@@ -28,11 +28,13 @@ export default defineComponent({
       this.showForm = true
     },
     addTransaction() {
+      const currentDate = new Date()
       // Lógica para adicionar a nova transação à lista existente
       this.transactions.push({
         id: this.transactions.length + 1,
         description: this.newTransaction.description,
         amount: Number.parseFloat(this.newTransaction.amount),
+        date: currentDate,
       })
 
       // Reinicializa o formulário e esconde o formulário
@@ -51,7 +53,6 @@ export default defineComponent({
   <div class="flex flex-nowrap bg-white pt-12">
     <!-- Movemos o componente TransactionList abaixo do bloco v-if -->
     <TransactionList :transactions="transactions" class="relative isolate basis-1/4 border-r-3 px-6 pt-14 lg:px-8" @transactiondeleted="handleTransactionDeleted" />
-
     <!-- Botão ou gatilho para adicionar nova transação -->
     <div class="relative isolate grid grid-flow-col grid-rows-4 flex flex-nowrap gap-4 px-6 pt-14 lg:px-8">
       <button @click="showAddTransactionForm">
