@@ -50,8 +50,8 @@ export default defineComponent({
 
     <!-- Botão ou gatilho para adicionar nova transação -->
     <div class="relative isolate grid grid-flow-col grid-rows-4 flex flex-nowrap gap-4 px-6 pt-14 lg:px-8">
-      <button class="hover:bg-blue" @click="showAddTransactionForm">
-        <div class="">
+      <button @click="showAddTransactionForm">
+        <div class="hover:text-indigo-600">
           Adicionar Transação
         </div>
       </button>
@@ -61,7 +61,7 @@ export default defineComponent({
         <form @submit.prevent="addTransaction">
           <label>
             Descrição:
-            <input v-model="newTransaction.description" required>
+            <input v-model="newTransaction.description" required type="text">
           </label>
 
           <label>
@@ -69,7 +69,7 @@ export default defineComponent({
             <input v-model="newTransaction.amount" type="number" required>
           </label>
 
-          <button type="submit">
+          <button type="submit" class="px-6 hover:text-indigo-500">
             Adicionar
           </button>
         </form>
