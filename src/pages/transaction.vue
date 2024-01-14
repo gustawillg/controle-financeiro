@@ -56,8 +56,7 @@ export default defineComponent({
     <div class="relative isolate grid grid-flow-col grid-rows-4 flex flex-nowrap gap-4 px-6 pt-14 lg:px-8">
       <button @click="showAddTransactionForm">
         <div class="hover:text-indigo-600">
-          <Icon icon="flat-color-icons:add-image" />
-          Adicionar Transação
+          <Icon icon="material-symbols:add" width="25" high="25" />
         </div>
       </button>
 
