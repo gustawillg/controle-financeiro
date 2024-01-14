@@ -50,8 +50,8 @@ export default defineComponent({
 
     <!-- Botão ou gatilho para adicionar nova transação -->
     <div class="relative isolate grid grid-flow-col grid-rows-4 flex flex-nowrap gap-4 px-6 pt-14 lg:px-8">
-      <button @click="showAddTransactionForm">
-        <div class="hover:bg-blue">
+      <button class="hover:bg-blue" @click="showAddTransactionForm">
+        <div class="">
           Adicionar Transação
         </div>
       </button>
