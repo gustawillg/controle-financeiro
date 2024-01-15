@@ -25,6 +25,9 @@ export default defineComponent({
     handleTransactionDeleted(id: number) {
       this.transactions = this.transactions.filter(transaction => transaction.id !== id)
     },
+    leTransactionAdded(newTransaction: any) {
+      this.transactions.push(newTransaction)
+    },
     showAddTransactionForm() {
       this.showForm = true
     },
@@ -37,6 +40,7 @@ export default defineComponent({
         amount: Number.parseFloat(this.newTransaction.amount),
         date: currentDate,
         category: this.newTransaction.category,
+        type: this.newTransaction.type,
       })
 
       // Reinicializa o formulário e esconde o formulário
@@ -44,6 +48,7 @@ export default defineComponent({
         description: '',
         amount: 0,
         category: '',
+        type: '',
       }
       this.showForm = false
     },
@@ -79,7 +84,14 @@ export default defineComponent({
           <label>
             Categoria:
             <input v-model="newTransaction.category" required>
+          </label>
 
+          <label>
+            Tipo:
+            <select v-model="newTransaction.type" required>
+              <option value="receita">Receita</option>
+              <option value="despesa">Despesa</option>
+            </select>
           </label>
 
           <button type="submit" class="px-6 hover:text-indigo-500">
