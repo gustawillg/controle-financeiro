@@ -17,6 +17,7 @@ export default defineComponent({
       newTransaction: {
         description: '',
         amount: 0,
+        category: '',
       },
     }
   },
@@ -35,12 +36,14 @@ export default defineComponent({
         description: this.newTransaction.description,
         amount: Number.parseFloat(this.newTransaction.amount),
         date: currentDate,
+        category: this.newTransaction.category,
       })
 
       // Reinicializa o formulário e esconde o formulário
       this.newTransaction = {
         description: '',
         amount: 0,
+        category: '',
       }
       this.showForm = false
     },
@@ -72,6 +75,11 @@ export default defineComponent({
           <label>
             Valor:
             <input v-model="newTransaction.amount" type="number" required>
+          </label>
+          <label>
+            Categoria:
+            <input v-model="newTransaction.category" required>
+
           </label>
 
           <button type="submit" class="px-6 hover:text-indigo-500">
