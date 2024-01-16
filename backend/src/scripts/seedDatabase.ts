@@ -1,12 +1,12 @@
 // seedDatabase.ts
 import mongoose from 'mongoose';
-import TransactionModel from 'src/models/TransactionModel'; // Certifique-se de ter o caminho correto
+import TransactionModel from '../models/TransactionModel';
 
 async function seedDatabase() {
   try {
     // Conecte-se ao banco de dados MongoDB
     await mongoose.connect('mongodb://localhost:27017/controle-financeiro', {
-      useNewUrlParser: true,
+      useNewUrlparser: true,
       useUnifiedTopology: true,
     });
     
