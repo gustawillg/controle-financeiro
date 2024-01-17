@@ -15,11 +15,27 @@ class TransactionController {
   async createTransaction(req: Request, res: Response) {
     try {
       const { description, amount, type } = req.body;
-      const newTransaction = await TransactionModel.create({ description, amount, type });
+      // Certifique-se de que o valor de 'type' é válido ('income' ou 'expense')
+      if (type !== 'income' && type !== 'expense') {
+        return res.status(400).json({ error: 'Invalid transaction type' });
+      }
+
+      const newTransaction = await TransactionModel.create({
+        description,
+        amount,
+        type,
+      });
+
       res.status(201).json(newTransaction);
     } catch (error) {
       console.error('Error creating transaction:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+
+      if (error.name === 'ValidationError') {
+        // Se for um erro de validação do Mongoose
+        res.status(400).json({ error: 'Validation Error', details: error.errors });
+      } else {
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
     }
   }
 }
