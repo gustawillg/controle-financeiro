@@ -19,6 +19,9 @@ class TransactionController {
       console.log('Received request:', req.body);
   
       const { description, amount, type } = req.body;
+      if (!description || !amount || !type) {
+        return res.status(400).json({ error: 'Please provide description, amount, and type' });
+      }
       console.log('Transaction details:', { description, amount, type });
   
       // Certifique-se de que o valor de 'type' é válido ('income' ou 'expense')
@@ -26,6 +29,10 @@ class TransactionController {
         console.log('Invalid transaction type:', type);
         return res.status(400).json({ error: 'Invalid transaction type' });
       }
+      
+      if (amount < 0) {
+        return res.status(400).json({ error: 'Amount must be a positive value' });
+      }      
   
       const newTransaction = await TransactionModel.create({
         description,
