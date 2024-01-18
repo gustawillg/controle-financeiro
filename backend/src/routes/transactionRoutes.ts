@@ -3,10 +3,10 @@ import transactionController from '../controllers/transactionController';
 
 const router: Router = express.Router();
 
-router.get('/', (_req, res) => {
-    res.send('Hello from the root route')
-});
-
+router.get('/transactions', transactionController.getAllTransactions);
 router.post('/transactions', transactionController.createTransaction);
+router.get('/transactions/filter', transactionController.filterTransactions);
+router.put('/transactions/:id', transactionController.updateTransaction);
+router.delete('/transactions/:id', transactionController.deleteTransaction);
 
 export default router;
