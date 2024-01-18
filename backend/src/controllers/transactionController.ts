@@ -128,8 +128,8 @@ class TransactionController {
   async generateMonthlyReport(req: Request, res: Response) {
     try {
       const { year, month } = req.params;
-      const startOfMonth = new Date(`${year}-${month}-01T00:00:00.000Z`);
-      const endOfMonth = new Date(`${year}-${month + 1}-01T00:00:00.000Z`);
+      const startOfMonth = new Date(`${year}-${parseInt(month, 10)}-01T00:00:00.000Z`);
+      const endOfMonth = new Date(`${year}-${parseInt(month, 10) + 1}-01T00:00:00.000Z`);
   
       const monthlyExpenses = await TransactionModel.aggregate([
         {
