@@ -9,7 +9,6 @@ const port = 3000;
 
 mongoose.connect('mongodb://localhost:27017/controle-financeiro');
 
-// Use o morgan para registrar logs de requisição
 app.use(morgan('dev'));
 
 app.use(cors());

@@ -24,7 +24,6 @@ class TransactionController {
       }
       console.log('Transaction details:', { description, amount, type });
   
-      // Certifique-se de que o valor de 'type' é válido ('income' ou 'expense')
       if (type !== 'income' && type !== 'expense') {
         console.log('Invalid transaction type:', type);
         return res.status(400).json({ error: 'Invalid transaction type' });
@@ -47,7 +46,6 @@ class TransactionController {
       console.error('Error creating transaction:', error);
   
       if (error.name === 'ValidationError') {
-        // Se for um erro de validação do Mongoose
         res.status(400).json({ error: 'Validation Error', details: error.errors });
       } else {
         res.status(500).json({ error: 'Internal Server Error' });
@@ -56,7 +54,6 @@ class TransactionController {
   }
   async filterTransactions(req: Request, res: Response) {
     try {
-      // Obtenha parâmetros de consulta da requisição
       const { type, amount, startDate, endDate } = req.query as {
         type?: string | ParsedQs | string[] | ParsedQs[];
         amount?: string | ParsedQs | string[] | ParsedQs[];
@@ -64,7 +61,6 @@ class TransactionController {
         endDate?: string | ParsedQs | string[] | ParsedQs[];
       };
 
-      // Construa um objeto de filtro com base nos parâmetros
       const filter: any = {};
 
       if (type) {
@@ -72,14 +68,13 @@ class TransactionController {
       }
 
       if (amount) {
-        filter.amount = { $gte: amount as unknown as number }; // Certifique-se de converter para number
+        filter.amount = { $gte: amount as unknown as number };
       }
 
       if (startDate && endDate) {
         filter.createdAt = { $gte: new Date(startDate as string), $lte: new Date(endDate as string) };
       }
 
-      // Execute a consulta com base nos filtros
       const filteredTransactions = await TransactionModel.find(filter);
 
       res.json(filteredTransactions);
@@ -93,12 +88,10 @@ class TransactionController {
       const { id } = req.params;
       const { description, amount, type } = req.body;
 
-      // Certifique-se de que o valor de 'type' é válido ('income' ou 'expense')
       if (type !== 'income' && type !== 'expense') {
         return res.status(400).json({ error: 'Invalid transaction type' });
       }
 
-      // Encontre a transação pelo ID e atualize-a com os novos dados
       const updatedTransaction = await TransactionModel.findByIdAndUpdate(
         id,
         { description, amount, type },
@@ -119,7 +112,6 @@ class TransactionController {
     try {
       const { id } = req.params;
 
-      // Encontre a transação pelo ID e exclua-a
       const deletedTransaction = await TransactionModel.findByIdAndDelete(id);
 
       if (!deletedTransaction) {
