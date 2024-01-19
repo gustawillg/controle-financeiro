@@ -3,7 +3,8 @@ import { Request, Response } from 'express';
 import TransactionController from '../transactionController';
 import TransactionModel from '../../models/TransactionModel';
 import { MockProxy } from 'jest-mock-extended';
-import '@types/jest';
+//import '@types/jest';
+
 
 
 jest.mock('../../models/TransactionModel');
