@@ -10,7 +10,6 @@ const port = 3000;
 mongoose.connect('mongodb://localhost:27017/controle-financeiro');
 
 app.use(morgan('dev'));
-
 app.use(cors());
 app.use(express.json());
 app.use('/transactions', transactionRoutes);
