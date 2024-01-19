@@ -2,7 +2,6 @@ import { mock, instance, when } from 'ts-mockito';
 import { Request, Response } from 'express';
 import TransactionController from '../transactionController';
 import TransactionModel from '../../models/TransactionModel';
-import '@types/jest';
 import { MockProxy } from 'jest-mock-extended';
 
 jest.mock('../../models/TransactionModel');
