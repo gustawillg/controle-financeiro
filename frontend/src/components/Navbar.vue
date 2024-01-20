@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { Icon } from '@iconify/vue';
+
 
 const navigation = [
   { name: 'Transações', href: '/transaction' },
@@ -10,18 +12,19 @@ const navigation = [
   { name: 'Configurações', href: '#' },
   { name: 'Resumo', href: '#' },
   { name: 'Calendário', href: '#' },
+  { name: 'Login', href: '/login' },
 ]
 
 const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header class="absolute inset-x-0 top-0 z-50">
+  <header class="absolute inset-x-0 top-0 z-50 bg-#f8f8ff">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="#" class="p-1.5 -m-1.5">
+        <a href="/" class="p-1.5 -m-1.5">
           <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+          <Icon icon="simple-icons:apachecassandra" width="40" height="40" />
         </a>
       </div>
       <div class="flex lg:hidden">
