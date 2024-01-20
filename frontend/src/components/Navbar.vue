@@ -24,7 +24,7 @@ const mobileMenuOpen = ref(false)
       <div class="flex lg:flex-1">
         <a href="/" class="p-1.5 -m-1.5">
           <span class="sr-only">Your Company</span>
-          <Icon icon="simple-icons:apachecassandra" width="40" height="40" />
+          <Icon icon="noto-v1:lizard" width="40" height="40" :horizontalFlip="true" />        
         </a>
       </div>
       <div class="flex lg:hidden">
