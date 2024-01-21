@@ -32,7 +32,7 @@ const mobileMenuOpen = ref(false)
       <div class="hidden lg:flex lg:gap-x-12">
         <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm text-gray-900 font-semibold leading-6">{{ item.name }}</a>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end" />
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end"/>
     </nav>
     <Dialog as="div" class="lg:hidden" :open="mobileMenuOpen" @close="mobileMenuOpen = false">
       <div class="fixed inset-0 z-50" />
