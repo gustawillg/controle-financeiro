@@ -7,7 +7,7 @@ import { Icon } from '@iconify/vue';
 
 const navigation = [
   { name: 'Transações', href: '/transaction' },
-  { name: 'Dashboard', href: '#' },
+  { name: 'Dashboard', href: '/dashboard' },
   { name: 'Login', href: '/login' },
 ]
 
