@@ -11,7 +11,6 @@ export default defineComponent({
       transactions: [
         { id: 1, description: 'Compra de mantimentos', amount: -50, date: new Date(), category: 'Compras', type: 'despesa' },
         { id: 2, description: 'Salário', amount: 1000, date: new Date() },
-        // ... outras transações ...
       ],
       showForm: false,
       newTransaction: {
@@ -34,7 +33,6 @@ export default defineComponent({
     },
     addTransaction() {
       const currentDate = new Date()
-      // Lógica para adicionar a nova transação à lista existente
       this.transactions.push({
         id: this.transactions.length + 1,
         description: this.newTransaction.description,
@@ -44,7 +42,6 @@ export default defineComponent({
         type: this.newTransaction.type,
       })
 
-      // Reinicializa o formulário e esconde o formulário
       this.newTransaction = {
         description: '',
         amount: 0,

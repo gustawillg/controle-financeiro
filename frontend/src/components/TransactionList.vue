@@ -7,11 +7,11 @@ export default defineComponent({
     Icon,
   },
   props: {
-    transactions: Array, // Propriedade para receber a lista de transações
+    transactions: Array, 
   },
   methods: {
     deleteTransaction(id: number) {
-      // Emitir um evento para notificar o componente pai sobre a exclusão
+     
       this.$emit('transactiondeleted', id)
     },
   },
