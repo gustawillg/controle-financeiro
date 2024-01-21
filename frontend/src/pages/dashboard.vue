@@ -1,8 +1,8 @@
 <template>
     <Navbar />
     <div class="py-20 px-20">
-        <h1>DashBoard</h1>
-        <Transactions/>
+        <FinancialSummary />
+        <Transactions />
         <Resumos/>
         <Calendario />
         <Relatorios />
