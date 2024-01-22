@@ -8,10 +8,6 @@ export default defineComponent({
   },
   data() {
     return {
-      transactions: [
-        { id: 1, description: 'Compra de mantimentos', amount: -50, date: new Date(), category: 'Compras', type: 'despesa' },
-        { id: 2, description: 'Salário', amount: 1000, date: new Date() },
-      ],
       showForm: false,
       newTransaction: {
         description: '',
