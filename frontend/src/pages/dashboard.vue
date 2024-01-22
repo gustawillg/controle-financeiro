@@ -41,6 +41,7 @@ export default defineComponent({
   methods: {
     updateTransactions(selectedDate: Date) {
         this.selectedDate = selectedDate;
+        console.log("data selecionada:", selectedDate)
     },
   },
   watch: {
