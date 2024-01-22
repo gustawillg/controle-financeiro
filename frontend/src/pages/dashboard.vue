@@ -2,9 +2,7 @@
     <Navbar />
     <div class="py-20 px-20">
         <FinancialSummary :entry="userEntry" :expense="userExpense" />
-        <Transactions :transactions="filtredTransactions" />
-        <Preview />
-        
+        <Transactions :transactions="filtredTransactions" />        
         <Calendario @dateSelected="updateTransactions"/>
     </div>
 </template>
