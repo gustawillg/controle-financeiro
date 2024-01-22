@@ -39,7 +39,7 @@ const mobileMenuOpen = ref(false)
         <div class="flex items-center justify-between">
           <a href="#" class="p-1.5 -m-1.5">
             <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+            <Icon icon="noto-v1:lizard" width="40" height="40" :horizontalFlip="true" />    
           </a>
           <button type="button" class="rounded-md p-2.5 text-gray-700 -m-2.5" @click="mobileMenuOpen = false">
             <span class="sr-only">Close menu</span>

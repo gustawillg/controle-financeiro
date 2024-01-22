@@ -7,10 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Accordion: typeof import('./components/Accordion.vue')['default']
     Calendario: typeof import('./components/Calendario.vue')['default']
     FinancialSummary: typeof import('./components/FinancialSummary.vue')['default']
     Navbar: typeof import('./components/Navbar.vue')['default']
     'Orçamentos': typeof import('./components/Orçamentos.vue')['default']
+    Preview: typeof import('./components/Preview.vue')['default']
+    PreviewModal: typeof import('./components/PreviewModal.vue')['default']
     README: typeof import('./components/README.md')['default']
     Relatorios: typeof import('./components/Relatorios.vue')['default']
     Resumos: typeof import('./components/Resumos.vue')['default']

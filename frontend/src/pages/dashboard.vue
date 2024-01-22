@@ -3,17 +3,18 @@
     <div class="py-20 px-20">
         <FinancialSummary :entry="userEntry" :expense="userExpense" />
         <Transactions :transactions="filtredTransactions" />
-        <Resumos/>
+        <Preview />
+        
         <Calendario @dateSelected="updateTransactions"/>
-        <Relatorios />
-        <Orçamentos />
     </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
 import FinancialSummary from '../components/FinancialSummary.vue';
 import Calendar from '../components/Calendario.vue'; 
-import TransactionList from '../components/TransactionList.vue'; 
+import TransactionList from '../components/TransactionList.vue';
+
+
 
 
 export default defineComponent({
