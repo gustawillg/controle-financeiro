@@ -8,6 +8,7 @@ export default defineComponent({
   },
   data() {
     return {
+      transactions: [],
       showForm: false,
       newTransaction: {
         description: '',
