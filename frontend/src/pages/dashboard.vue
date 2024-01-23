@@ -4,11 +4,7 @@
         <FinancialSummary :entry="userEntry" :expense="userExpense" />
         <Transactions :transactions="filtredTransactions" />        
         <Calendario @dateSelected="updateTransactions"/>
-        <Doughnut
-      :data="[25, 75, 30]"
-      :labels="['Red', 'Green', 'Blue']"
-      :colors="['red', 'green', 'blue']"
-        />
+        <Grafico />
     </div>
 </template>
 <script lang="ts">
