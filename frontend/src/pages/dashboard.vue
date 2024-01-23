@@ -4,7 +4,6 @@
         <FinancialSummary :entry="userEntry" :expense="userExpense" />
         <Transactions :transactions="filtredTransactions" />        
         <Calendario @dateSelected="updateTransactions"/>
-        <Grafico />
     </div>
 </template>
 <script lang="ts">
