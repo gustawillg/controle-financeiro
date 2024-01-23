@@ -10,6 +10,7 @@ declare module 'vue' {
     Accordion: typeof import('./components/Accordion.vue')['default']
     Calendario: typeof import('./components/Calendario.vue')['default']
     FinancialSummary: typeof import('./components/FinancialSummary.vue')['default']
+    Grafico: typeof import('./components/Grafico.vue')['default']
     Navbar: typeof import('./components/Navbar.vue')['default']
     'Orçamentos': typeof import('./components/Orçamentos.vue')['default']
     Preview: typeof import('./components/Preview.vue')['default']

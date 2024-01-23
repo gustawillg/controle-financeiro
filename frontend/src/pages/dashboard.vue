@@ -11,8 +11,10 @@ import { defineComponent } from 'vue';
 import FinancialSummary from '../components/FinancialSummary.vue';
 import Calendar from '../components/Calendario.vue'; 
 import TransactionList from '../components/TransactionList.vue';
+import VueChartkick from 'vue-chartkick';
+import Chart from 'chart.js';
 
-
+Vue.use(VueChartkick, { adapter: Chart });
 
 
 export default defineComponent({
