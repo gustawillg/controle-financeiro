@@ -4,10 +4,11 @@
         <FinancialSummary :entry="userEntry" :expense="userExpense" />
         <Transactions :transactions="filtredTransactions" />        
         <Calendario @dateSelected="updateTransactions"/>
+        <Grafico />
     </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import FinancialSummary from '../components/FinancialSummary.vue';
 import Calendar from '../components/Calendario.vue'; 
 import TransactionList from '../components/TransactionList.vue';
@@ -24,31 +25,34 @@ export default defineComponent({
     Calendar,
     TransactionList,
   },
-  data() {
+  setup() {
+    const userEntry = ref(1000);
+    const userExpense = ref(500);
+    const selectedDate = ref(new Date());
+    const transactions = ref([] as Transaction[]);
+
+    VueChartkick.use(Chart);
+
+    const filteredTransactions = ref([]);
+    
+    const updateTransactions = (newDate: Date) => {
+        selectedDate.value = newDate;
+        console.log("data selecionada:", newDate);
+    };
+
     return {
-      userEntry: 1000, 
-      userExpense: 500, 
-      selectedDate: new Date(),
-      transactions: [] as Transaction[],
+      userEntry,
+      userExpense,
+      selectedDate,
+      transactions,
+      filteredTransactions,
+      updateTransactions,
     };
   },
-  computed: {
-    filteredTransactions() {
-        return this.transactions.filter((transaction) => {
-            return transaction.date.toDateString() === this.selectedDate.toDateString();
-        });
-    },
-  },
-  methods: {
-    updateTransactions(selectedDate: Date) {
-        this.selectedDate = selectedDate;
-        console.log("data selecionada:", selectedDate)
-    },
-  },
   watch: {
-    selectedDate(){
-    // Lógica adicional ao alterar a data selecionada
-    // Por exemplo, buscar novas transações da API
+    selectedDate() {
+        // Lógica adicional ao alterar a data selecionada
+        // Por exemplo, buscar novas transações da API
     },
   },
 });

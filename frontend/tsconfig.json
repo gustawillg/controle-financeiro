@@ -8,7 +8,9 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+    "noImplicitAny": false,
+    "allowJs": true,
     },
     "resolveJsonModule": true,
     "types": [
