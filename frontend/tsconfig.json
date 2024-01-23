@@ -9,8 +9,9 @@
     "moduleResolution": "node",
     "paths": {
       "~/*": ["src/*"],
-    "noImplicitAny": false,
-    "allowJs": true,
+    "noImplicitAny": [false],
+    "allowJs": [true],
+    "experimentalDecorators": true,
     },
     "resolveJsonModule": true,
     "types": [

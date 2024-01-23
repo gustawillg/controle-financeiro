@@ -27,6 +27,7 @@ export default defineConfig({
   plugins: [
     VueMacros({
       plugins: {
+        [ViteVuePlugin()],
         vue: Vue({
           include: [/\.vue$/, /\.md$/],
         }),

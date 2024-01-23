@@ -4,7 +4,11 @@
         <FinancialSummary :entry="userEntry" :expense="userExpense" />
         <Transactions :transactions="filtredTransactions" />        
         <Calendario @dateSelected="updateTransactions"/>
-        <Grafico />
+        <Doughnut
+      :data="[25, 75, 30]"
+      :labels="['Red', 'Green', 'Blue']"
+      :colors="['red', 'green', 'blue']"
+        />
     </div>
 </template>
 <script lang="ts">
@@ -12,10 +16,7 @@ import { defineComponent } from 'vue';
 import FinancialSummary from '../components/FinancialSummary.vue';
 import Calendar from '../components/Calendario.vue'; 
 import TransactionList from '../components/TransactionList.vue';
-import VueChartkick from 'vue-chartkick'
-import 'chartkick/chart.js'
 
-app.use(VueChartkick)
 
 
 
