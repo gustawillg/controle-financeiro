@@ -8,14 +8,15 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 import FinancialSummary from '../components/FinancialSummary.vue';
 import Calendar from '../components/Calendario.vue'; 
 import TransactionList from '../components/TransactionList.vue';
-import VueChartkick from 'vue-chartkick';
-import Chart from 'chart.js';
+import VueChartkick from 'vue-chartkick'
+import 'chartkick/chart.js'
 
-Vue.use(VueChartkick, { adapter: Chart });
+app.use(VueChartkick)
+
 
 
 export default defineComponent({
@@ -25,34 +26,31 @@ export default defineComponent({
     Calendar,
     TransactionList,
   },
-  setup() {
-    const userEntry = ref(1000);
-    const userExpense = ref(500);
-    const selectedDate = ref(new Date());
-    const transactions = ref([] as Transaction[]);
-
-    VueChartkick.use(Chart);
-
-    const filteredTransactions = ref([]);
-    
-    const updateTransactions = (newDate: Date) => {
-        selectedDate.value = newDate;
-        console.log("data selecionada:", newDate);
-    };
-
+  data() {
     return {
-      userEntry,
-      userExpense,
-      selectedDate,
-      transactions,
-      filteredTransactions,
-      updateTransactions,
+      userEntry: 1000, 
+      userExpense: 500, 
+      selectedDate: new Date(),
+      transactions: [] as Transaction[],
     };
   },
+  computed: {
+    filteredTransactions() {
+        return this.transactions.filter((transaction) => {
+            return transaction.date.toDateString() === this.selectedDate.toDateString();
+        });
+    },
+  },
+  methods: {
+    updateTransactions(selectedDate: Date) {
+        this.selectedDate = selectedDate;
+        console.log("data selecionada:", selectedDate)
+    },
+  },
   watch: {
-    selectedDate() {
-        // Lógica adicional ao alterar a data selecionada
-        // Por exemplo, buscar novas transações da API
+    selectedDate(){
+    // Lógica adicional ao alterar a data selecionada
+    // Por exemplo, buscar novas transações da API
     },
   },
 });
