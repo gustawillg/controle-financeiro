@@ -14,7 +14,7 @@ export default defineComponent({
         description: '',
         amount: 0,
         category: '',
-        type: 'receita',
+        type: '',
       },
     }
   },
@@ -43,7 +43,7 @@ export default defineComponent({
         description: '',
         amount: 0,
         category: '',
-        type: 'receita',
+        type: '',
       }
       this.showForm = false
     },
@@ -83,8 +83,8 @@ export default defineComponent({
           <label>
             Tipo:
             <select v-model="newTransaction.type" required>
-              <option value="receita">Receita</option>
-              <option value="despesa">Despesa</option>
+            <option value="Receita">Receita</option>
+            <option value="Despesa">Despesa</option>
             </select>
           </label>
 
