@@ -54,7 +54,7 @@ export default defineComponent({
 <template>
   <div class="flex flex-nowrap bg-white pt-12">
     <!-- Movemos o componente TransactionList abaixo do bloco v-if -->
-    <TransactionList :transactions="transactions" class="relative isolate basis-1/4 border-r-3 px-6 pt-14 lg:px-20" @transactiondeleted="handleTransactionDeleted" />
+    <TransactionList :transactions="transactions" class="relative isolate basis-1/4  px-6 pt-14 lg:px-20" @transactiondeleted="handleTransactionDeleted" />
     <!-- Botão ou gatilho para adicionar nova transação -->
     <div class="relative isolate grid grid-flow-col grid-rows-4 flex flex-nowrap gap-4 px-6 pt-14 lg:px-8">
       <button @click="showAddTransactionForm">
