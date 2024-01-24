@@ -3,15 +3,14 @@
     "target": "ESNext",
     "jsx": "preserve",
     "lib": ["DOM", "ESNext"],
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
     "useUnknownInCatchVariables": false,
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "node",
     "paths": {
       "~/*": ["src/*"],
-    "noImplicitAny": [false],
-    "allowJs": [true],
-    "experimentalDecorators": true,
     },
     "resolveJsonModule": true,
     "types": [
