@@ -59,6 +59,8 @@ export default defineComponent({
         type: this.selectedType,
         category: this.selectedCategory,
       });
+      
+      this.showForm = false;
     },
     toggleForm() {
       this.showForm = !this.showForm; // Alternar o estado showForm
