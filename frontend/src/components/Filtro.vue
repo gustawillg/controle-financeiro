@@ -15,6 +15,7 @@
         <option value="receita">Receita</option>
         <option value="despesa">Despesa</option>
       </select>
+     
 
       <label for="filterCategory">Categoria:</label>
       <select v-model="selectedCategory">
