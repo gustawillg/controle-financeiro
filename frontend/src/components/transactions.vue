@@ -56,7 +56,7 @@ export default defineComponent({
     <!-- Movemos o componente TransactionList abaixo do bloco v-if -->
     <TransactionList :transactions="transactions" class="relative isolate basis-1/4  px-6 pt-14 lg:px-20" @transactiondeleted="handleTransactionDeleted" />
     <!-- Botão ou gatilho para adicionar nova transação -->
-    <div class="relative isolate grid grid-flow-col grid-rows-4 flex flex-nowrap gap-4 px-6 pt-14 lg:px-8">
+    <div class="relative  isolate grid grid-flow-col grid-rows-4 flex flex-nowrap gap-4 px-6 pt-14 lg:px-8">
       <button @click="showAddTransactionForm">
         <div class="hover:text-indigo-600">
           <Icon icon="material-symbols:add" width="25" high="25" />
@@ -64,8 +64,9 @@ export default defineComponent({
       </button>
 
       <div v-if="showForm" class="grid row-span-3 grid-rows-subgrid gap-4 px-6 lg:px-8">
-        <h2>Nova Transação</h2>
+       
         <form @submit.prevent="addTransaction">
+          <h2 class="p-10">Nova Transação</h2>
           <label>
             Descrição:
             <input v-model="newTransaction.description" required type="text">
