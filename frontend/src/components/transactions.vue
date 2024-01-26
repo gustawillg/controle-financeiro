@@ -63,7 +63,7 @@ export default defineComponent({
         </div>
       </button>
 
-      <div v-if="showForm" class="grid row-span-3 grid-rows-subgrid gap-4 px-6 lg:px-30 xl:px-90 2xl:px-100">
+      <div v-if="showForm" class="grid row-span-3 grid-rows-subgrid gap-4 lg:pr-60  xl:pr-190 2xl:pr-190 sm:pr-100">
        
         <form @submit.prevent="addTransaction">
           <h2 class="p-10">Nova Transação</h2>
