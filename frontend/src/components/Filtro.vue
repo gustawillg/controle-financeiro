@@ -1,7 +1,8 @@
-<!-- Filtro.vue -->
-
 <template>
-  <div class="absolute bottom-0 right-100 h-215 w-0">
+  <div class="absolute bottom-0 right-100 h-215 w-0 
+  2xl:bottom-100 2xl:right-70 2xl:h-115 
+  xl:bottom-100 xl:right-70 xl:h-70 
+  lg:bottom-100 lg:right-70 lg:h-70">
     <!-- Botão do ícone -->
     <button @click="toggleForm">
       <Icon icon="ion:filter" width="24" height="24" />
