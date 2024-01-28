@@ -2,14 +2,12 @@
   <div class="absolute bottom-0 right-100 h-215 w-0 
   2xl:bottom-100 2xl:right-70 2xl:h-115 
   xl:bottom-100 xl:right-70 xl:h-70 
-  lg:bottom-100 lg:right-70 lg:h-70
- ">
-    <!-- Botão do ícone -->
+  lg:bottom-100 lg:right-70 lg:h-70">
+
     <button @click="toggleForm">
       <Icon icon="ion:filter" width="24" height="24" />
     </button>
 
-    <!-- Formulário dentro do ícone (usando v-if para mostrar/ocultar) -->
     <div v-if="showForm">
       <label for="filterType">Tipo:</label>
       <select v-model="selectedType">
@@ -26,8 +24,9 @@
         </option>
       </select>
 
-      <!-- Botão para aplicar filtros -->
-      <button @click="applyFilters"><Icon icon="pajamas:check" width="20" height="20"/></button>
+      <button @click="applyFilters">
+        <Icon icon="pajamas:check" width="20" height="20" />
+      </button>
     </div>
   </div>
 </template>
@@ -53,15 +52,15 @@ export default defineComponent({
         type: this.selectedType,
         category: this.selectedCategory,
       });
-      
+
       this.showForm = false;
     },
     toggleForm() {
-      this.showForm = !this.showForm; 
+      this.showForm = !this.showForm;
     },
   },
   props: {
-    userCategories: Array, 
+    userCategories: Array,
   },
 });
 </script>
