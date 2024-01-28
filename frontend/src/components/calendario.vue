@@ -4,7 +4,7 @@
   xl:bottom-100 xl:right-40 xl:h-70 
   lg:bottom-100 lg:right-40 lg:h-70
   ">
-    <input  type="date" v-model="selectedDate" @input="handleDateChange" />
+    <input type="date" v-model="selectedDate" @change="handleDateChange" />
   </div>
 </template>
 
@@ -15,15 +15,21 @@ export default defineComponent({
   name: 'Calendar',
   data() {
     return {
-      selectedDate: new Date().toISOString().split('T')[0],
+      selectedDate: this.formatDate(new Date()), // Inicializa a data atual
     };
   },
   methods: {
-    handleDateChange() {
-      
-      this.$emit('dateSelected', new Date(this.selectedDate));
+    handleDateChange(event: Event) {
+      const input = event.target as HTMLInputElement;
+      const selectedDate = new Date(input.value);
+      this.$emit('dateSelected', selectedDate);
+    },
+    formatDate(date: Date): string {
+      const year = date.getFullYear();
+      const month = `${date.getMonth() + 1}`.padStart(2, '0');
+      const day = `${date.getDate()}`.padStart(2, '0');
+      return `${year}-${month}-${day}`;
     },
   },
 });
 </script>
-

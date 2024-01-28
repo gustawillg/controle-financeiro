@@ -17,20 +17,16 @@
         <option value="receita">Receita</option>
         <option value="despesa">Despesa</option>
       </select>
-     
 
       <label for="filterCategory">Categoria:</label>
       <select v-model="selectedCategory">
         <option value="">Todas</option>
-        <option
-          v-for="category in uniqueCategories"
-          :key="category"
-          :value="category"
-        >
+        <option v-for="category in userCategories" :key="category" :value="category">
           {{ category }}
         </option>
       </select>
 
+      <!-- Botão para aplicar filtros -->
       <button @click="applyFilters"><Icon icon="pajamas:check" width="20" height="20"/></button>
     </div>
   </div>
@@ -51,11 +47,6 @@ export default defineComponent({
       showForm: false,
     };
   },
-  computed: {
-    uniqueCategories() {
-      return Array.from(new Set(this.allCategories));
-    },
-  },
   methods: {
     applyFilters() {
       this.$emit("filters-updated", {
@@ -70,7 +61,7 @@ export default defineComponent({
     },
   },
   props: {
-    allCategories: Array, // Lista de todas as categorias disponíveis
+    userCategories: Array, // Lista de categorias adicionadas pelo usuário
   },
 });
 </script>
