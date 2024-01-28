@@ -15,7 +15,7 @@ export default defineComponent({
   name: 'Calendar',
   data() {
     return {
-      selectedDate: this.formatDate(new Date()), // Inicializa a data atual
+      selectedDate: this.formatDate(new Date()), 
     };
   },
   methods: {

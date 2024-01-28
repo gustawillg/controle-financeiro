@@ -49,12 +49,12 @@ export default defineComponent({
   methods: {
     updateTransactions(selectedDate: Date) {
       this.selectedDate = selectedDate.toISOString().split('T')[0];
-      console.log('data selecionada:', this.selectedDate); // Use this.selectedDate em vez de selectedDate
-      this.applyFilters(); // Chame a função applyFilters para atualizar com os filtros aplicados
+      console.log('data selecionada:', this.selectedDate); 
+      this.applyFilters(); 
     },
     updateFilters(newFilters) {
       this.currentFilters = newFilters;
-      this.applyFilters(); // Chame a função applyFilters quando os filtros são atualizados
+      this.applyFilters();
     },
     applyFilters() {
       // Lógica para atualizar as transações com base nos filtros

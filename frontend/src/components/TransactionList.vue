@@ -24,7 +24,6 @@ export default defineComponent({
       Lista de Transações
     </h2>
     <ul>
-      <!-- Iterar sobre as transações e exibi-las -->
       <li v-for="transaction in transactions || []" :key="transaction.id">
         {{ transaction.description }} - R${{ transaction.amount.toFixed(2) }} - Categoria: {{ transaction.category }} - Tipo: {{ transaction.type }}
         <div class="px-6">

@@ -57,11 +57,11 @@ export default defineComponent({
       this.showForm = false;
     },
     toggleForm() {
-      this.showForm = !this.showForm; // Alternar o estado showForm
+      this.showForm = !this.showForm; 
     },
   },
   props: {
-    userCategories: Array, // Lista de categorias adicionadas pelo usuário
+    userCategories: Array, 
   },
 });
 </script>
