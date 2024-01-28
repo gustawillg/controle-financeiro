@@ -9,5 +9,7 @@ router.get('/reports/monthly/:year/:month', transactionController.generateMonthl
 router.get('/filter', transactionController.filterTransactions);
 router.get('/', transactionController.getAllTransactions);
 router.post('/', transactionController.createTransaction);
+router.get('/categories', transactionController.getAllCategories);
+
 
 export default router;

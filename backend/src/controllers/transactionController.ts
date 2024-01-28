@@ -151,6 +151,19 @@ class TransactionController {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   }
-}
+    getAllCategories: async (req: Request, res: Response) => {
+    try {
+      // Query para obter todas as categorias únicas do banco de dados
+      const categories = await Transaction.distinct('category');
+
+      // Enviar as categorias como resposta
+      res.json(categories);
+    } catch (error) {
+      console.error('Erro ao obter categorias:', error);
+      res.status(500).json({ message: 'Erro ao obter categorias' });
+    }
+  },
+};
+
 
 export default new TransactionController();
